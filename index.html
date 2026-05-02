@@ -1,108 +1,946 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhD | Crooney</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Mono:wght@300;400;500&family=Archivo:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --ink: #0e0d0b;
-            --parchment: #f2ede4;
-            --cream: #faf7f2;
-            --mid: #7a7268;
-            --rule: #d4cdc0;
-        }
-        body {
-            background: var(--cream);
-            color: var(--ink);
-            font-family: 'Archivo', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 24px;
-        }
-        .tag {
-            font-family: 'DM Mono', monospace;
-            font-size: 10px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--mid);
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(36px, 6vw, 64px);
-            font-weight: 300;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-        .desc {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(17px, 2vw, 21px);
-            font-weight: 300;
-            line-height: 1.65;
-            color: #2a2820;
-            max-width: 540px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .rule {
-            width: 48px;
-            height: 2px;
-            background: var(--ink);
-            margin-bottom: 40px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .nav-links a {
-            font-family: 'DM Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--mid);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            padding-bottom: 2px;
-            transition: border-color 0.2s, color 0.2s;
-        }
-        .nav-links a:hover {
-            color: var(--ink);
-            border-bottom-color: var(--ink);
-        }
-        footer {
-            position: fixed;
-            bottom: 24px;
-            font-family: 'DM Mono', monospace;
-            font-size: 10px;
-            letter-spacing: 0.12em;
-            color: var(--rule);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhD Research — Joel Flynn | Carleton TIM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Archivo:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Archivo', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+      --color-ink: #0e0d0b;
+      --color-parchment: #f2ede4;
+      --color-cream: #faf7f2;
+      --color-mid: #7a7268;
+      --color-rule: #d4cdc0;
+      --color-processes: #c8692a;
+      --color-resources: #3a6b8a;
+      --color-values: #4a7c59;
+      --color-light: #7a6a4a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; overflow-x: clip; }
+
+    body {
+      background: var(--color-cream);
+      color: var(--color-ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--color-cream);
+      border-bottom: 1px solid var(--color-rule);
+    }
+    .topbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .topbar-inner::-webkit-scrollbar { display: none; }
+    .topbar-home {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      text-decoration: none;
+      padding: 1rem 1.25rem 1rem 0;
+      white-space: nowrap;
+      border-right: 1px solid var(--color-rule);
+      margin-right: 0;
+      transition: color 0.15s;
+    }
+    .topbar-home:hover { color: var(--color-ink); }
+    .subnav {
+      display: flex;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .subnav::-webkit-scrollbar { display: none; }
+    .subnav-link {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      text-decoration: none;
+      padding: 1rem 1.1rem;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      position: relative;
+    }
+    .subnav-link:hover { color: var(--color-ink); }
+    .subnav-link.active { color: var(--color-ink); border-bottom-color: var(--color-ink); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      border-bottom: 1px solid var(--color-rule);
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--color-ink);
+      max-width: 800px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--color-mid);
+    }
+    .hero-lead {
+      font-family: var(--font-serif);
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      font-weight: 300;
+      line-height: 1.65;
+      color: #2a2820;
+      max-width: 680px;
+      margin-bottom: 2rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .hero-meta-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+    }
+    .hero-meta-value {
+      font-size: 14px;
+      color: var(--color-ink);
+    }
+
+    /* ── LAYOUT ── */
+    .page-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    /* ── ROOT PROBLEM ── */
+    .root-problem {
+      border-left: 3px solid var(--color-ink);
+      padding: 2rem 2.5rem;
+      margin: 4rem 0;
+      background: var(--color-parchment);
+    }
+    .root-problem-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-bottom: 1rem;
+    }
+    .root-problem blockquote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--color-ink);
+    }
+    .root-problem-note {
+      margin-top: 1rem;
+      font-size: 13px;
+      color: var(--color-mid);
+      line-height: 1.6;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      padding: 3.5rem 0 2rem;
+      border-top: 1px solid var(--color-rule);
+      margin-top: 3rem;
+    }
+    .section-header:first-child { border-top: none; margin-top: 0; }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--color-ink);
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 15px;
+      color: #3a3830;
+      max-width: 640px;
+      line-height: 1.7;
+    }
+
+    /* ── CHAPTER CARDS ── */
+    .chapters-grid {
+      display: grid;
+      gap: 0;
+      margin-top: 2rem;
+    }
+    .chapter-card {
+      border: 1px solid var(--color-rule);
+      border-top: none;
+      padding: 2rem;
+      background: var(--color-cream);
+      transition: background 0.15s;
+    }
+    .chapter-card:first-child { border-top: 1px solid var(--color-rule); }
+    .chapter-card:hover { background: var(--color-parchment); }
+    .chapter-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .chapter-number {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--color-mid);
+      white-space: nowrap;
+      padding-top: 0.15rem;
+      min-width: 2.5rem;
+    }
+    .chapter-title-group { flex: 1; }
+    .chapter-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .chapter-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--color-ink);
+    }
+    .chapter-body {
+      margin-left: calc(2.5rem + 1.5rem);
+      font-size: 14px;
+      color: #3a3830;
+      line-height: 1.75;
+    }
+    .chapter-body p + p { margin-top: 0.75rem; }
+    .chapter-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--color-mid);
+      border: 1px solid var(--color-rule);
+      padding: 3px 9px;
+      display: inline-block;
+    }
+    .tag-processes { color: var(--color-processes); border-color: rgba(200,105,42,0.3); }
+    .tag-resources { color: var(--color-resources); border-color: rgba(58,107,138,0.3); }
+    .tag-values { color: var(--color-values); border-color: rgba(74,124,89,0.3); }
+    .tag-light { color: var(--color-light); border-color: rgba(122,106,74,0.3); }
+    .chapter-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-top: 1rem;
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-rule);
+    }
+    .status-dot.draft { background: #c8692a; }
+    .status-dot.in-progress { background: #3a6b8a; }
+    .status-dot.forthcoming { background: #4a7c59; }
+
+    /* ── FRAMEWORK TABLE ── */
+    .fw-table-wrap {
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+    .fw-table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+    .fw-table th {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      text-align: left;
+      border-bottom: 2px solid var(--color-ink);
+      padding: 10px 16px;
+      white-space: nowrap;
+    }
+    .fw-table td {
+      border-bottom: 1px solid var(--color-rule);
+      vertical-align: top;
+      padding: 14px 16px;
+      line-height: 1.5;
+      color: #3a3830;
+    }
+    .fw-table tr:hover td { background: var(--color-parchment); }
+    .fw-layer {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ── PEOPLE / COMMITTEE ── */
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--color-rule);
+      border: 1px solid var(--color-rule);
+      margin-top: 2rem;
+    }
+    .person-card {
+      background: var(--color-cream);
+      padding: 1.5rem;
+      transition: background 0.15s;
+    }
+    .person-card:hover { background: var(--color-parchment); }
+    .person-role {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-bottom: 0.4rem;
+    }
+    .person-name {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--color-ink);
+      margin-bottom: 0.25rem;
+    }
+    .person-affil {
+      font-size: 12.5px;
+      color: var(--color-mid);
+      line-height: 1.5;
+    }
+
+    /* ── SOURCES SECTION ── */
+    .sources-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 600px) { .sources-cols { grid-template-columns: 1fr; } }
+    .sources-group-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--color-rule);
+    }
+    .source-item {
+      font-size: 13px;
+      color: #3a3830;
+      line-height: 1.5;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--color-rule);
+    }
+    .source-item:last-child { border-bottom: none; }
+    .source-author { font-weight: 600; color: var(--color-ink); }
+
+    /* ── LINKS / STATUS ── */
+    .doc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-resources);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(58,107,138,0.3);
+      padding-bottom: 1px;
+      margin-top: 1rem;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .doc-link:hover { color: var(--color-ink); border-color: var(--color-ink); }
+    .doc-link-pending {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-top: 1rem;
+      display: inline-block;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid var(--color-rule);
+      padding: 2.5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-note {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--color-mid);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-link {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-link:hover { color: var(--color-ink); }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 640px) {
+      .hero { padding: 3rem 1.25rem 2.5rem; }
+      .page-body { padding: 0 1.25rem 4rem; }
+      .chapter-body { margin-left: 0; margin-top: 0.75rem; }
+      .chapter-header { flex-direction: column; gap: 0.5rem; }
+      .hero-meta { gap: 1.25rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="tag">crooney.ca</div>
-    <h1>PhD</h1>
-    <div class="desc">Innovation system orchestration for the creative industries.</div>
-    <div class="rule"></div>
-    <nav class="nav-links">
-        <a href="https://vanisle.crooney.ca">Vanisle</a>
-        <a href="https://lab.crooney.ca">Lab</a>
-        <a href="https://projects.crooney.ca">Projects</a>
-        <a href="https://soundtrap.crooney.ca">Soundtrap</a>
-        <a href="https://aries.crooney.ca">Aries</a>
-    </nav>
-    <footer>phd.crooney.ca</footer>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://crooney.ca" class="topbar-home">crooney.ca</a>
+    <div class="subnav">
+      <a href="#overview" class="subnav-link active">Overview</a>
+      <a href="#chapters" class="subnav-link">Chapters</a>
+      <a href="#framework" class="subnav-link">Framework</a>
+      <a href="#committee" class="subnav-link">Committee</a>
+      <a href="#sources" class="subnav-link">Sources</a>
+      <a href="https://aries.crooney.ca" class="subnav-link">ARIES ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="overview">
+  <p class="hero-eyebrow">PhD Research · Carleton University · Technology Innovation Management</p>
+  <h1>Platform Governance for the<br><em>Creative Industries</em></h1>
+  <p class="hero-lead">An integrated article thesis examining how experience-intensive platforms govern the transfer of value between practitioner identity and market access — across the Sound, Food, Drink, and Light registers of live cultural production.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Candidate</span>
+      <span class="hero-meta-value">Joel A. Flynn</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Program</span>
+      <span class="hero-meta-value">TIM · Sprott School of Business</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Format</span>
+      <span class="hero-meta-value">Integrated Article Thesis · Section 12.4</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Industry Entity</span>
+      <span class="hero-meta-value">1730 Technology Consulting Inc.</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Target Journal</span>
+      <span class="hero-meta-value">TIM Review · Carleton University</span>
+    </div>
+  </div>
+</header>
+
+<main class="page-body">
+
+  <!-- ROOT PROBLEM -->
+  <div class="root-problem reveal">
+    <p class="root-problem-label">The Root Problem — 30-Year Research Arc</p>
+    <blockquote>How do you design platforms that govern the transfer of value between the practitioner's irreplaceable process identity and the market's demand for scalable access — transparently and participatorily?</blockquote>
+    <p class="root-problem-note">First circumambulated in a 1995 New Venture Creation course at UBC Sauder (prediction market for indie bands as a proto-NFT governance mechanism). The three papers address this problem from three different focal lengths, with Chapter 5 showing the framework operating in an uncontrolled real-world context.</p>
+  </div>
+
+  <!-- CHAPTERS -->
+  <section id="chapters">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Dissertation Architecture</p>
+      <h2 class="section-title">Five Chapters</h2>
+      <p class="section-desc">Three peer-reviewed papers (Chapters 2–4) framed by a methodology introduction (Chapter 1) and an applied ecosystem conclusion (Chapter 5). All five chapters develop simultaneously in Moggridge's non-linear design modes; the narrative is assembled from portfolio components.</p>
+    </div>
+
+    <div class="chapters-grid">
+
+      <!-- CH 1 -->
+      <div class="chapter-card reveal">
+        <div class="chapter-header">
+          <span class="chapter-number">Ch. 1</span>
+          <div class="chapter-title-group">
+            <p class="chapter-label" style="color: var(--color-mid);">Introduction · Methodology</p>
+            <h3 class="chapter-title">The Root Problem and the S/E/E/D Methodology</h3>
+          </div>
+        </div>
+        <div class="chapter-body">
+          <p>Establishes the 30-year circumambulation structure (Brown / Seeley Brown's "radical research / bend your lenses") and introduces S/E/E/D — Study / Explore / Evaluate / Design — as a Flynn (2010) refinement of Moggridge's (2007) non-linear design process model. S/E/E/D maps onto Wartofsky's three artifact levels: Study (primary), Explore (secondary), Evaluate (tertiary), Design (synthesis via Engeström's double stimulation).</p>
+          <p>Introduces the F/D/S/L schema (Food · Drink · Sound · Light) as the governing experience design framework, and provides an overview of the five-lens convergence that Paper 3 develops in full.</p>
+          <div class="chapter-tags">
+            <span class="tag">S/E/E/D · Flynn (2010)</span>
+            <span class="tag">Moggridge (2007)</span>
+            <span class="tag">F/D/S/L Schema</span>
+            <span class="tag">Wartofsky (1979)</span>
+          </div>
+          <div class="chapter-status">
+            <span class="status-dot in-progress"></span>
+            In development — S/E/E/D section pending recovery from SEEDFEED documentation
+          </div>
+        </div>
+      </div>
+
+      <!-- CH 2 / PAPER 1 -->
+      <div class="chapter-card reveal">
+        <div class="chapter-header">
+          <span class="chapter-number">Ch. 2</span>
+          <div class="chapter-title-group">
+            <p class="chapter-label" style="color: var(--color-resources);">Paper 1 · TIM Review · RPV Resources Layer · Sound Register</p>
+            <h3 class="chapter-title">Miscategorized by Design: A Theoretical Correction to IDEO's DFV Framework</h3>
+          </div>
+        </div>
+        <div class="chapter-body">
+          <p>IDEO's Desirability / Feasibility / Viability framework correctly identifies three dimensions of innovation but miscategorizes all three. Using Christensen's RPV theory — reconceptualized as a coordinated system of analytical lenses (Flynn, 2010) and grounded in Beer's Viable System Model — this paper proposes the correct reordering and tests it against the Stratalab™ platform deployment in the Sound register.</p>
+          <p><strong>Diagnostic case:</strong> Rockaoke Live! featuring The Naturals passed all three DFV tests and collapsed anyway. RPV diagnoses it correctly: a Resources-layer failure. The Naturals dissolved as a performing unit — the irreplaceable human practitioners whose cult value the platform concentrated in one group, rather than distributing across a stable community. DFV's Viability category is miscategorized as economic sustainability rather than as a Values question about what the system is organized to produce and protect.</p>
+          <p><strong>The structural solution:</strong> Megaband™ distributes musician cult value across a registered community. Audiofish™ is the proposed digital platform with a fish.audio Siri-style agentic AI voice interface as the Mitacs architecture target. Norman (1988) affordance theory is the theoretical warrant for the interface design at the Tool Layer.</p>
+          <div class="chapter-tags">
+            <span class="tag tag-resources">Resources Layer</span>
+            <span class="tag">Sound Register</span>
+            <span class="tag">DFV → RPV Correction</span>
+            <span class="tag">Beer (1973)</span>
+            <span class="tag">Norman (1988)</span>
+            <span class="tag">Megaband™ · Audiofish™</span>
+          </div>
+          <span class="doc-link-pending">↳ Working draft in development · Flynn (forthcoming-a)</span>
+        </div>
+      </div>
+
+      <!-- CH 3 / PAPER 2 -->
+      <div class="chapter-card reveal">
+        <div class="chapter-header">
+          <span class="chapter-number">Ch. 3</span>
+          <div class="chapter-title-group">
+            <p class="chapter-label" style="color: var(--color-processes);">Paper 2 · TIM Review · RPV Processes Layer · Food + Drink Registers</p>
+            <h3 class="chapter-title">Variety Engineering in Hospitality Platforms: A Cybernetic Case Study of TableSet</h3>
+          </div>
+        </div>
+        <div class="chapter-body">
+          <p>Hospitality platform design in the Food and Drink registers is a variety engineering problem in Beer and Ashby's precise sense — at the RPV Processes layer, where resources (chefs, bartenders, kitchens, ingredients) are assumed present but the governance of the encounter between professional cult value and guest preference remains unsolved.</p>
+          <p><strong>The exchange value app</strong> is the attenuation mechanism: it mediates between the chef's irreplaceable culinary identity and the guest's preferences, specifying pattern (which concept, which professional, which property) while delegating content to local professional decision. Two matched professionals bear distinct cult value: the chef (Food register) and the bartender (Drink register), whose cult value operates in two simultaneous modes — pairings (amplifying or counterpointing the food) and transitions (marking movement between course-worlds).</p>
+          <p><strong>Narrative arc:</strong> From the Stratalab™ pivot — authorized by Anthony Bourdain as the tertiary artifact who names the structural homology between musician and chef cult value ("rock and roll chef" as a precise theoretical claim, not a metaphor) — into the TableSet platform and the SeaBaby Estates / Blau + Associates hospitality deployment.</p>
+          <div class="chapter-tags">
+            <span class="tag tag-processes">Processes Layer</span>
+            <span class="tag">Food + Drink Registers</span>
+            <span class="tag">Beer / Ashby · Variety Engineering</span>
+            <span class="tag">Eco (1962/1989)</span>
+            <span class="tag">Bourdain · Tertiary Artifact</span>
+            <span class="tag">TableSet™</span>
+          </div>
+          <span class="doc-link-pending">↳ Working draft in development · Flynn (forthcoming-b)</span>
+        </div>
+      </div>
+
+      <!-- CH 4 / PAPER 3 -->
+      <div class="chapter-card reveal">
+        <div class="chapter-header">
+          <span class="chapter-number">Ch. 4</span>
+          <div class="chapter-title-group">
+            <p class="chapter-label" style="color: var(--color-values);">Paper 3 · TIM Review · Theoretical Synthesis · All Registers</p>
+            <h3 class="chapter-title">The Autopoietic Mirror: Lenses, Layers, and Tertiary Artifacts</h3>
+          </div>
+        </div>
+        <div class="chapter-body">
+          <p>Five independently developed analytical frameworks are five lenses on the same three-layer autopoietic structure. The structural homology is not coincidental — it points toward something real about how human systems organize tools, practices, and meaning. The five lenses: Wartofsky's three-level artifact theory (1979); Engeström's expanded activity triangle (1987); Christensen/Flynn RPV (2004/2010); Beer/Ashby variety engineering (1956/1973); Benjamin/Flynn exchange value framework (1935/2006).</p>
+          <p>The paper develops three orderings of one structure (RPV diagnostic / PRV pedagogical / PSL governance), the ARIES certificate as encoded theory, the F/D/S/L schema with its internal vertical stack architecture, the AI commodification argument (Stage 2 commodifies tertiary artifacts; curatorial judgment is now the genuinely scarce capability), and the PSL three-and-only-three business models claim.</p>
+          <p><strong>The Change Laboratory dimension:</strong> The dissertation itself is an instance of what it argues. Its named ideal outcome — stated explicitly in the Change Laboratory / formative intervention section — is the Don Norman Design Award (DNDA) Education category for the ARIES Certificate in Cultural Production and Platform Economics.</p>
+          <div class="chapter-tags">
+            <span class="tag tag-values">All Three Layers</span>
+            <span class="tag">Five-Lens Convergence</span>
+            <span class="tag">Engeström · Change Laboratory</span>
+            <span class="tag">Berger (1972) · Light Register</span>
+            <span class="tag">ARIES · PRV Arc</span>
+            <span class="tag">DNDA Ideal Outcome</span>
+          </div>
+          <span class="doc-link-pending">↳ Working draft exists · Flynn (2026)</span>
+        </div>
+      </div>
+
+      <!-- CH 5 -->
+      <div class="chapter-card reveal">
+        <div class="chapter-header">
+          <span class="chapter-number">Ch. 5</span>
+          <div class="chapter-title-group">
+            <p class="chapter-label" style="color: var(--color-light);">Conclusion · Applied Ecosystem · All Layers · Uncontrolled Conditions</p>
+            <h3 class="chapter-title">The System in the Wild: VICSS and the Clearwater Spirits Ecosystem</h3>
+          </div>
+        </div>
+        <div class="chapter-body">
+          <p>Where Papers 1–3 each isolate one RPV dimension for analytical clarity, Chapter 5 shows all three lenses operating simultaneously in uncontrolled conditions: real regulatory constraints, real competitive variety, real relationship complexity. This is not hypothetical future research — the VanIsle Cooperative Spirits System (VICSS) / Clearwater Spirits / Campbell River Lodge ecosystem was developing concurrently with the three papers.</p>
+          <p><strong>Two-level Beer/Ashby attenuation:</strong> Level 1 — Regulatory attenuation reduces the on-site distillery concept to white-label production at an established Vancouver Island distillery. Level 2 — VICSS cooperative governance converts competitive variety among Vancouver Island distillers into structural collaboration. A cleaner two-level empirical demonstration of Beer/Ashby than any hypothetical case.</p>
+          <p><strong>The Clearwater Spirits five-expression brand family</strong> instantiates the F/D/S/L schema at the product design level — each expression a tertiary artifact encoding the collective memory of a site (a lodge that burned, closed, or was rebuilt). The bottle is the tertiary artifact; the liquid is the medium; the label is the encoded memory.</p>
+          <div class="chapter-tags">
+            <span class="tag tag-resources">Resources</span>
+            <span class="tag tag-processes">Processes</span>
+            <span class="tag tag-values">Values</span>
+            <span class="tag">VICSS · Clearwater Spirits</span>
+            <span class="tag">Two-Level Attenuation</span>
+            <span class="tag">Wartofsky Tertiary Artifact</span>
+          </div>
+          <span class="doc-link-pending">↳ In development — concurrent applied ecosystem</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FRAMEWORK -->
+  <section id="framework">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Theoretical Architecture</p>
+      <h2 class="section-title">The Five-Lens Convergence</h2>
+      <p class="section-desc">Five independently developed frameworks describe the same three-layer autopoietic structure. The convergence is the central theoretical claim of Paper 3.</p>
+    </div>
+
+    <div class="fw-table-wrap reveal">
+      <table class="fw-table">
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Wartofsky</th>
+            <th>Engeström</th>
+            <th>RPV</th>
+            <th>Beer / Ashby</th>
+            <th>Benjamin / Flynn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="fw-layer" style="color: var(--color-resources);">Tool</span></td>
+            <td>Primary artifact</td>
+            <td>Tools / Instruments</td>
+            <td>Resources</td>
+            <td>Variety pool</td>
+            <td>Exhibition value <em style="font-size:12px; color: var(--color-mid);">(network effects)</em></td>
+          </tr>
+          <tr>
+            <td><span class="fw-layer" style="color: var(--color-processes);">Process</span></td>
+            <td>Secondary artifact</td>
+            <td>Object-mediated action</td>
+            <td>Processes</td>
+            <td>Attenuation / Amplification</td>
+            <td>Cult value <em style="font-size:12px; color: var(--color-mid);">(secret recipe)</em></td>
+          </tr>
+          <tr>
+            <td><span class="fw-layer" style="color: var(--color-values);">Governance</span></td>
+            <td>Tertiary artifact</td>
+            <td>Rules + Community + DoL</td>
+            <td>Values</td>
+            <td>Regulatory model</td>
+            <td>Exchange value <em style="font-size:12px; color: var(--color-mid);">(can it be priced?)</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-header reveal" style="margin-top: 2rem;">
+      <p class="section-eyebrow">Three Orderings of One Structure</p>
+    </div>
+    <div class="fw-table-wrap reveal">
+      <table class="fw-table">
+        <thead>
+          <tr>
+            <th>Ordering</th>
+            <th>Sequence</th>
+            <th>Purpose</th>
+            <th>Context</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>RPV</strong> <span style="font-size:11px; color: var(--color-mid);">Christensen</span></td>
+            <td>Resources → Processes → Values</td>
+            <td>Diagnostic — most visible to most hidden</td>
+            <td>Papers 1 and 2</td>
+          </tr>
+          <tr>
+            <td><strong>PRV</strong> <span style="font-size:11px; color: var(--color-mid);">ARIES pedagogical</span></td>
+            <td>Processes → Resources → Values</td>
+            <td>Pedagogical — most inhabited outward; Beer-justified variety sequencing</td>
+            <td>ARIES certificate</td>
+          </tr>
+          <tr>
+            <td><strong>PSL</strong> <span style="font-size:11px; color: var(--color-mid);">Flynn 2022</span></td>
+            <td>Products → Services → Licences</td>
+            <td>Governance — three-and-only-three business models</td>
+            <td>Paper 3 · MC8</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-header reveal" style="margin-top: 2rem;">
+      <p class="section-eyebrow">Experience Design Schema</p>
+      <h2 class="section-title" style="font-size: 1.4rem;">The F/D/S/L Framework — Vertical Stack</h2>
+      <p class="section-desc">Four registers; four metaphrames; non-flat internal architecture. Established in Flynn (2006) MASc thesis; formalized in the 2020 Sprott PhD application.</p>
+    </div>
+    <div class="fw-table-wrap reveal">
+      <table class="fw-table">
+        <thead>
+          <tr>
+            <th>Register</th>
+            <th>Relationship</th>
+            <th>Platform</th>
+            <th>Cult Value Bearer</th>
+            <th>Montage Analogy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="fw-layer">Food</span> <span style="font-size:11px; color: var(--color-mid);">Base</span></td>
+            <td>Primary — must exist first</td>
+            <td>TableSet</td>
+            <td>Chef — culinary identity</td>
+            <td>The audio track</td>
+          </tr>
+          <tr>
+            <td><span class="fw-layer">Drink</span> <span style="font-size:11px; color: var(--color-mid);">On Food</span></td>
+            <td>Pairings + Transitions (two simultaneous modes)</td>
+            <td>TableSet</td>
+            <td>Bartender — cocktail philosophy</td>
+            <td>Visual montage — accompaniment and editorial cuts</td>
+          </tr>
+          <tr>
+            <td><span class="fw-layer">Sound</span> <span style="font-size:11px; color: var(--color-mid);">On Food + Drink</span></td>
+            <td>Atmospheric / emotional layer over culinary encounter</td>
+            <td>Audiofish™ · Megaband™</td>
+            <td>Musician — registered community</td>
+            <td>Enhanced podcast — adds perspective over the base</td>
+          </tr>
+          <tr>
+            <td><span class="fw-layer">Light</span> <span style="font-size:11px; color: var(--color-mid);">On Sound</span></td>
+            <td>Perspective layer — value-adding; non-occluding</td>
+            <td>Evoke · ClearLED · MML</td>
+            <td>Curator — authority over perspective (Berger 1972)</td>
+            <td>Sequential visual chapters — Berger's reciprocity</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- COMMITTEE -->
+  <section id="committee">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Supervision and Institutional Partners</p>
+      <h2 class="section-title">Committee and Partners</h2>
+    </div>
+    <div class="people-grid reveal">
+      <div class="person-card">
+        <p class="person-role">Target Supervisor</p>
+        <p class="person-name">Dr. Nuša Fain</p>
+        <p class="person-affil">Assistant Professor, Entrepreneurship<br>Sprott School of Business · Carleton University</p>
+      </div>
+      <div class="person-card">
+        <p class="person-role">MOU Governance · TIM</p>
+        <p class="person-name">Dr. Steven Muegge</p>
+        <p class="person-affil">Academic Director, TIM Program<br>Carleton University</p>
+      </div>
+      <div class="person-card">
+        <p class="person-role">MOU Governance · CARTI</p>
+        <p class="person-name">Rhianna Nagel</p>
+        <p class="person-affil">Director, Centre for Applied Research,<br>Technology and Innovation · NIC</p>
+      </div>
+      <div class="person-card">
+        <p class="person-role">i2I Network · Values Layer</p>
+        <p class="person-name">Prof. Elicia Maine</p>
+        <p class="person-affil">Founder, National Invention to Innovation Network<br>Simon Fraser University · NSERC / Mitacs</p>
+      </div>
+      <div class="person-card">
+        <p class="person-role">Industry Entity</p>
+        <p class="person-name">1730 Technology Consulting Inc.</p>
+        <p class="person-affil">Canadian-Controlled Private Corporation<br>Stratalab™ · ARIES Certificate · 1730.ca</p>
+      </div>
+      <div class="person-card">
+        <p class="person-role">Ideal Outcome · Education Award</p>
+        <p class="person-name">Don Norman Design Award</p>
+        <p class="person-affil">Education Category · HCD+ Framework<br>UCSD Design Lab · dnda.design</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section id="sources">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Primary Sources</p>
+      <h2 class="section-title">Theoretical Foundation</h2>
+      <p class="section-desc">Key sources across all five chapters. The canonical Process Layer lineage runs: Wiener (1948) → Eco / Beer / Norman [three independent cybernetic descendants] → Wartofsky / Christensen → Flynn (2010) [named integration] → Flynn (2026).</p>
+    </div>
+    <div class="sources-cols reveal">
+      <div>
+        <p class="sources-group-label">Foundational Theory</p>
+        <div class="source-item"><span class="source-author">Wartofsky (1979)</span> — Three-level artifact theory</div>
+        <div class="source-item"><span class="source-author">Engeström (1987)</span> — Learning by Expanding; Change Laboratory</div>
+        <div class="source-item"><span class="source-author">Engeström (2009)</span> — From Design Experiments to Formative Interventions</div>
+        <div class="source-item"><span class="source-author">Vygotsky (1978)</span> — SxR mediational model</div>
+        <div class="source-item"><span class="source-author">Beer (1973)</span> — Designing Freedom · CBC Massey Lectures</div>
+        <div class="source-item"><span class="source-author">Maturana &amp; Varela (1980)</span> — Autopoiesis and Cognition</div>
+        <div class="source-item"><span class="source-author">Wiener (1948)</span> — Cybernetics · named lineage ancestor</div>
+        <div class="source-item"><span class="source-author">Benjamin (1935)</span> — Work of Art in the Age of Mechanical Reproduction</div>
+        <div class="source-item"><span class="source-author">Berger (1972)</span> — Ways of Seeing · Light register</div>
+        <div class="source-item"><span class="source-author">Vertov (1923)</span> — Kinoglaz writings · mechanical eye</div>
+        <div class="source-item"><span class="source-author">Cole (1996)</span> — Cultural Psychology · coordinated lenses</div>
+      </div>
+      <div>
+        <p class="sources-group-label">Applied and Prior Art</p>
+        <div class="source-item"><span class="source-author">Christensen, Anthony &amp; Roth (2004)</span> — RPV · Seeing What's Next</div>
+        <div class="source-item"><span class="source-author">Norman (1988)</span> — The Design of Everyday Things · affordance</div>
+        <div class="source-item"><span class="source-author">Eco (1962/1989)</span> — The Open Work · Cancogni trans. Harvard UP</div>
+        <div class="source-item"><span class="source-author">Moggridge (2007)</span> — Designing Interactions · non-linear process</div>
+        <div class="source-item"><span class="source-author">Brown / IDEO (2008)</span> — DFV framework · Paper 1 target</div>
+        <div class="source-item"><span class="source-author">Flynn (2002)</span> — Fairytale of New York · unpublished manuscript SFU</div>
+        <div class="source-item"><span class="source-author">Flynn (2006)</span> — Travels in Intertextuality · MASc SFU</div>
+        <div class="source-item"><span class="source-author">Flynn (2010)</span> — SEEDFEED · RPV as coordinated lenses; S/E/E/D</div>
+        <div class="source-item"><span class="source-author">Flynn (2022)</span> — PTML · PSL/DFV convergence prior art</div>
+        <div class="source-item"><span class="source-author">Sloss (2026)</span> — The Strategy Game · tactics/strategy/goals</div>
+        <div class="source-item"><span class="source-author">Miller (1956)</span> — The Magical Number Seven · routing constraint</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="site-footer">
+    <span class="footer-note">phd.crooney.ca · Joel Flynn · Carleton TIM · April 2026</span>
+    <div class="footer-links">
+      <a href="https://aries.crooney.ca" class="footer-link">ARIES</a>
+      <a href="https://crooney.ca" class="footer-link">crooney.ca</a>
+      <a href="https://1730.ca" class="footer-link">1730.ca</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Subnav active state on scroll
+  const sections = ['overview', 'chapters', 'framework', 'committee', 'sources'];
+  const navLinks = document.querySelectorAll('.subnav-link');
+  const sectObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const match = document.querySelector(`.subnav-link[href="#${e.target.id}"]`);
+        if (match) match.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) sectObserver.observe(el);
+  });
+</script>
+
 </body>
 </html>
