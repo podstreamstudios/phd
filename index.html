@@ -15,8 +15,8 @@
       --color-ink: #0e0d0b;
       --color-parchment: #f2ede4;
       --color-cream: #faf7f2;
-      --color-mid: #7a7268;
-      --color-rule: #d4cdc0;
+      --color-mid: #5c564e;
+      --color-rule: #c2bab0;
       --color-processes: #c8692a;
       --color-resources: #3a6b8a;
       --color-values: #4a7c59;
@@ -141,7 +141,7 @@
       font-size: clamp(1.05rem, 1.8vw, 1.3rem);
       font-weight: 300;
       line-height: 1.65;
-      color: #2a2820;
+      color: #1a1810;
       max-width: 680px;
       margin-bottom: 2rem;
     }
@@ -229,7 +229,7 @@
     }
     .section-desc {
       font-size: 15px;
-      color: #3a3830;
+      color: #2a2820;
       max-width: 640px;
       line-height: 1.7;
     }
@@ -282,7 +282,7 @@
     .chapter-body {
       margin-left: calc(2.5rem + 1.5rem);
       font-size: 14px;
-      color: #3a3830;
+      color: #2a2820;
       line-height: 1.75;
     }
     .chapter-body p + p { margin-top: 0.75rem; }
@@ -352,7 +352,7 @@
       vertical-align: top;
       padding: 14px 16px;
       line-height: 1.5;
-      color: #3a3830;
+      color: #2a2820;
     }
     .fw-table tr:hover td { background: var(--color-parchment); }
     .fw-layer {
@@ -420,7 +420,7 @@
     }
     .source-item {
       font-size: 13px;
-      color: #3a3830;
+      color: #2a2820;
       line-height: 1.5;
       padding: 0.5rem 0;
       border-bottom: 1px solid var(--color-rule);
@@ -512,22 +512,26 @@
   <div class="topbar-inner">
     <a href="https://crooney.ca" class="topbar-home">crooney.ca</a>
     <div class="subnav">
-      <a href="#overview" class="subnav-link active">Overview</a>
-      <a href="#chapters" class="subnav-link">Chapters</a>
-      <a href="#framework" class="subnav-link">Framework</a>
-      <a href="#committee" class="subnav-link">Committee</a>
-      <a href="#sources" class="subnav-link">Sources</a>
-      <a href="https://aries.crooney.ca" class="subnav-link">ARIES ↗</a>
+      <a href="#narrative" class="subnav-link active">Narrative</a>
+      <a href="#portfolio" class="subnav-link">Portfolio</a>
+      <a href="#ch1" class="subnav-link">Ch. 1</a>
+      <a href="#ch2" class="subnav-link">Ch. 2</a>
+      <a href="#ch3" class="subnav-link">Ch. 3</a>
+      <a href="#ch4" class="subnav-link">Ch. 4</a>
+      <a href="#ch5" class="subnav-link">Ch. 5</a>
+      <a href="https://aries.crooney.ca" class="subnav-link" target="_blank">ARIES ↗</a>
+      <a href="https://lab.crooney.ca" class="subnav-link" target="_blank">Lab ↗</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<header class="hero" id="overview">
+<header class="hero" id="narrative">
   <p class="hero-eyebrow">PhD Research · Carleton University · Technology Innovation Management</p>
   <h1><span class="pipe">|</span>Food<span class="pipe">|</span>Drink<span class="pipe">|</span>Sound<span class="pipe">|</span>Light<span class="pipe">|</span></h1>
   <p class="hero-subtitle">Innovation Between the Frames of an Experience Economy</p>
   <p class="hero-lead">An integrated article thesis examining how experience-intensive platforms govern the transfer of value between practitioner identity and market access — across the Sound, Food, Drink, and Light registers of live cultural production.</p>
+  <p class="hero-lead" style="margin-top: 0.75rem; font-size: clamp(0.95rem, 1.6vw, 1.15rem); color: var(--color-mid);">This page runs two simultaneous logics. <strong style="color: var(--color-ink); font-weight: 500;">Narrative logic</strong> — what Alexander Luria called Romantic Science — is the travelogue: a 30-year circumambulation in which each pass at the root problem arrives from a new angle. <strong style="color: var(--color-ink); font-weight: 500;">Portfolio logic</strong> — Classical Science — is the Trello board: five discrete chapter cards that can be examined in any order. Both logics are necessary. Neither is sufficient alone. The dissertation is the argument that they belong together.</p>
   <div class="hero-meta">
     <div class="hero-meta-item">
       <span class="hero-meta-label">Candidate</span>
@@ -561,6 +565,16 @@
     <p class="root-problem-note">First circumambulated in a 1995 New Venture Creation course at UBC Sauder (prediction market for indie bands as a proto-NFT governance mechanism). The three papers address this problem from three different focal lengths, with Chapter 5 showing the framework operating in an uncontrolled real-world context.</p>
   </div>
 
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Research Logic · Classical Science</p>
+      <h2 class="section-title">Portfolio Logic</h2>
+      <p class="section-desc">The second logic running through this dissertation is what Alexander Luria called Classical Science: a catalogue of what exists, what has been built, what can be held and examined independently of the moment it was made. Each chapter card below is a Trello card — a discrete, portable artifact with its own tags, status, and relationships. The portfolio can be navigated in any order. The cards do not depend on each other to be legible. This is the logic of the tacklebox: every lure has its place; the collection can be inventoried; the inventory does not require the river.</p>
+      <p class="section-desc" style="margin-top: 1rem;">In Wartofsky's terms, portfolio logic operates at the primary and secondary artifact levels — the tools and the recipes. Miller's Law (1956) governs the portfolio structure: seven chunks, plus or minus two, is the working memory constraint. Five chapters. Two meta-nodes (Narrative and Portfolio). Seven navbar items. The constraint is what makes the navigation count.</p>
+    </div>
+  </section>
+
   <!-- CHAPTERS -->
   <section id="chapters">
     <div class="section-header reveal">
@@ -572,32 +586,37 @@
     <div class="chapters-grid">
 
       <!-- CH 1 -->
-      <div class="chapter-card reveal">
+      <div class="chapter-card reveal" id="ch1">
         <div class="chapter-header">
           <span class="chapter-number">Ch. 1</span>
           <div class="chapter-title-group">
-            <p class="chapter-label" style="color: var(--color-mid);">Introduction · Methodology</p>
-            <h3 class="chapter-title">The Root Problem and the S/E/E/D Methodology</h3>
+            <p class="chapter-label" style="color: var(--color-mid);">Introduction · Methodology · 30-Year Circumambulation</p>
+            <h3 class="chapter-title">Travelogue: An Autopoietic Return</h3>
           </div>
         </div>
         <div class="chapter-body">
-          <p>Establishes the 30-year circumambulation structure (Brown / Seeley Brown's "radical research / bend your lenses") and introduces S/E/E/D — Study / Explore / Evaluate / Design — as a Flynn (2010) refinement of Moggridge's (2007) non-linear design process model. S/E/E/D maps onto Wartofsky's three artifact levels: Study (primary), Explore (secondary), Evaluate (tertiary), Design (synthesis via Engeström's double stimulation).</p>
-          <p>Introduces the |F|D|S|L| schema (Food · Drink · Sound · Light) as the governing experience design framework, and provides an overview of the five-lens convergence that Paper 3 develops in full.</p>
+          <p>Establishes the root problem — how to design systems that govern the transfer of value between cult and exhibition layers transparently and participatorily — and demonstrates it through a 30-year circumambulation. The travelogue form is not decoration: the form enacts what the content claims. As in Flynn (2006), the methodology is the argument.</p>
+          <p>The arc begins not at BCIT in 1999 but at UBC Commerce in 1992, where autopoiesis (Maturana and Varela) first entered the record. In 1995, a New Venture Creation course produced a prediction market for indie bands — a proto-NFT governance mechanism for the transfer of value between cult communities and exhibition markets. The root problem was present. The recognition was not.</p>
+          <p>Flynn (2003) <em>Fisherman's Eyes</em> — an IART 608 coursework paper applying Benjamin's cult/exhibition dialectic and Engeström's activity theory to Haig-Brown's <em>Fisherman's Summer</em> — is now identifiable as the origin document of the PhD's experience design research question, seventeen years before the Carleton application. Campbell River appears here not as biography but as geographic research anchor. The 2006 MASc formalized the discovery; the 2010 MBA translated it into business strategy; ten years of live performance (2014–2024) embodied it without naming it. The 2020 Carleton enrollment is George Crooney handing back to Doctor Obscurity.</p>
+          <p>Introduces S/E/E/D — Study / Explore / Evaluate / Design — as a Flynn (2010) refinement of Moggridge's (2007) non-linear design process model, mapped onto Wartofsky's three artifact levels (Study: primary / Explore: secondary / Evaluate: tertiary / Design: Engeström's double stimulation). Cole's (1996) coordinated lenses methodology provides the epistemological warrant: the lenses illuminate what each other cannot, which is precisely why they must remain coordinated rather than collapsed into a unified framework.</p>
           <div class="chapter-tags">
+            <span class="tag">Travelogue Form · Flynn (2006/2026)</span>
             <span class="tag">S/E/E/D · Flynn (2010)</span>
+            <span class="tag">Cole (1996) · Coordinated Lenses</span>
             <span class="tag">Moggridge (2007)</span>
-            <span class="tag">|F|D|S|L| Schema</span>
+            <span class="tag">Benjamin (1935)</span>
+            <span class="tag">Haig-Brown · Campbell River</span>
             <span class="tag">Wartofsky (1979)</span>
           </div>
           <div class="chapter-status">
-            <span class="status-dot in-progress"></span>
-            In development — S/E/E/D section pending recovery from SEEDFEED documentation
+            <span class="status-dot draft"></span>
+            Draft v2.0 — May 2026
           </div>
         </div>
       </div>
 
       <!-- CH 2 / PAPER 1 -->
-      <div class="chapter-card reveal">
+      <div class="chapter-card reveal" id="ch2">
         <div class="chapter-header">
           <span class="chapter-number">Ch. 2</span>
           <div class="chapter-title-group">
@@ -622,7 +641,7 @@
       </div>
 
       <!-- CH 3 / PAPER 2 -->
-      <div class="chapter-card reveal">
+      <div class="chapter-card reveal" id="ch3">
         <div class="chapter-header">
           <span class="chapter-number">Ch. 3</span>
           <div class="chapter-title-group">
@@ -647,7 +666,7 @@
       </div>
 
       <!-- CH 4 / PAPER 3 -->
-      <div class="chapter-card reveal">
+      <div class="chapter-card reveal" id="ch4">
         <div class="chapter-header">
           <span class="chapter-number">Ch. 4</span>
           <div class="chapter-title-group">
@@ -656,7 +675,7 @@
           </div>
         </div>
         <div class="chapter-body">
-          <p>Five independently developed analytical frameworks are five lenses on the same three-layer autopoietic structure. The structural homology is not coincidental — it points toward something real about how human systems organize tools, practices, and meaning. The five lenses: Wartofsky's three-level artifact theory (1979); Engeström's expanded activity triangle (1987); Christensen/Flynn RPV (2004/2010); Beer/Ashby variety engineering (1956/1973); Benjamin/Flynn exchange value framework (1935/2006).</p>
+          <p>Five independently developed analytical frameworks are five lenses on the same three-lens autopoietic structure. The structural homology is not coincidental — it points toward something real about how human systems organize tools, practices, and meaning. The five lenses: Wartofsky's three-level artifact theory (1979); Engeström's expanded activity triangle (1987); Christensen/Flynn RPV (2004/2010); Beer/Ashby variety engineering (1956/1973); Benjamin/Flynn exchange value framework (1935/2006).</p>
           <p>The paper develops three orderings of one structure (RPV diagnostic / PRV pedagogical / PSL governance), the ARIES certificate as encoded theory, the |F|D|S|L| schema with its internal vertical stack architecture, the AI commodification argument (Stage 2 commodifies tertiary artifacts; curatorial judgment is now the genuinely scarce capability), and the PSL three-and-only-three business models claim.</p>
           <p><strong>The Change Laboratory dimension:</strong> The dissertation itself is an instance of what it argues. Its named ideal outcome — stated explicitly in the Change Laboratory / formative intervention section — is the Don Norman Design Award (DNDA) Education category for the ARIES Certificate in Cultural Production and Platform Economics.</p>
           <div class="chapter-tags">
@@ -672,7 +691,7 @@
       </div>
 
       <!-- CH 5 -->
-      <div class="chapter-card reveal">
+      <div class="chapter-card reveal" id="ch5">
         <div class="chapter-header">
           <span class="chapter-number">Ch. 5</span>
           <div class="chapter-title-group">
@@ -682,19 +701,18 @@
         </div>
         <div class="chapter-body">
           <p>Chapter 5 is not a summary of Papers 1–3. It is three things simultaneously: the empirical demonstration that the compound lens (|F|D|S|L| + RPV/Wartofsky/Benjamin, coordinated via Cole) works in uncontrolled real-world conditions; the MML future work proposal for the Light register empirical deployment; and the autopoietic return — the practitioner-researcher arriving back at the experience design question first posed in Flynn (2003) <em>Fisherman's Eyes</em> (Campbell River, Haig-Brown's river), having built the theoretical and empirical apparatus to answer it.</p>
-          <p>The field site is Campbell River, BC — five venues forming an interchangeable applied innovation ecosystem: <strong>Campbell River Lodge / Goose and Gander</strong> (Lodge and Lab case study; primary Mitacs Application 1 site; keystone node); <strong>Match Pub and Eatery at Chances Casino</strong> (primary LBE site; Evoke existing relationship; Audiofish Phase 3a); <strong>Painter's Lodge</strong> (heritage destination hospitality; Fyma.ai spatial analytics); <strong>Naturally Pacific Resort / Velocity Lounge</strong> (technology-forward premium comparator; Travel + Leisure 100 Best New Hotels 2025; Michelin Guide PLUS); and <strong>Spirit Square / Tidemark Theatre</strong> (showcase site; civic governance; INFilm location library). Each venue is a distinct pool in the Tyee Pool sense. The Tyee Club of B.C. has held its chinook salmon tournament in Campbell River since 1923 under a strict constraint set: rowboat or canoe only, 20-pound line maximum, single barbless hook. The constraint is what makes the catch count. The peer-reviewed papers are the membership pins.</p>
-          <p><strong>Campbell River Lodge is the keystone node.</strong> It sits at the literal delta of the highway split — north to Port Hardy and San Josef Bay, west to Strathcona, Gold River, and Tahsis. Every onward journey into the wilderness begins here. This is also where live entertainment is currently active and building organically, making it the pivot between two overlapping ecosystems: a local Campbell River cultural engagement system serving the community, and an international wilderness tourism platform serving the European hikers, UK backpackers, and wilderness enthusiasts that the BBC's <em>Race Across the World</em> (Series 3, 2023) — which characterized Campbell River as "the last major outpost of civilisation on the journey north" — sent looking for exactly this kind of coordinated access.</p>
-          <p>The wilderness platform is <strong>IslandCamp</strong> — an operating system for car-free camping on Vancouver Island, coordinated from Campbell River Lodge. The North Island Journey Arc runs from the Lodge north through the Scarlet Ibis Pub (the civilization-to-wilderness transition node near San Josef Bay) to San Josef Bay itself — the requisite variety stress-test environment where remoteness, weather, and terrain concentrate into the irreducible encounter that generates cult value. IslandCamp absorbs the destructive friction of fragmented transportation while preserving the productive friction — the remoteness, the pilgrimage, the effort — that makes the catch count. The <strong>|Drink|</strong> register provides the value object that travels when the experience cannot: a bottle of Vancouver Island craft spirits (VICSS — Vancouver Island Craft Spirits Society), encoded with the terroir and provenance of the journey, purchased at the Lodge or bundled with the IslandCamp package, and carried home to wherever home is. The bottle preserves the cult value of the place rather than severing it. It funds the next trip. It markets the experience to everyone who sees it on the shelf.</p>
-          <p>The Light register is the empirical horizon, and this is where <strong>MML (Multimodal Media Lab)</strong> enters as the desire architecture layer. MML's |F|D|S|L| toolkit operates by keeping the Food and Drink registers irreducibly real — a BBQ salmon meal prepared and served at Campbell River Lodge, a glass of River Lodge Whisky poured at the table — while virtualizing the Sound and Light registers through immersive technology: the ambient river at golden hour, the wilderness soundscape, the campfire light that the dining room cannot physically provide. The real meal is eaten in a designed world. This is not simulation — it is experiential architecture. The person who has eaten that meal in the virtualized riverside setting arrives at the actual outdoor experience already primed for the irreducible encounter. The simulation of Sound and Light creates the pilgrimage motivation for the complete real experience. <strong>TheLounge™</strong> (Mitacs Application 2) extends this across the full five-venue ecosystem, with MML as primary industry partner, evoke.ca as visual design collaborator, and INFilm (Vancouver Island North Film Commission) as in-kind regional partner integrating outputs into the Screen Tourism Map.</p>
+          <p>The field site is Campbell River, BC — five venues forming an interchangeable applied innovation ecosystem across the infrastructure spectrum: <strong>Campbell River Lodge / Goose and Gander</strong> (Lodge and Lab case study; primary Mitacs Application 1 site); <strong>Match Pub and Eatery at Chances Casino</strong> (primary LBE site; Evoke existing relationship; Audiofish Phase 3a deployment context); <strong>Painter's Lodge</strong> (heritage destination hospitality; Fyma.ai spatial analytics connection); <strong>Naturally Pacific Resort / Velocity Lounge</strong> (technology-forward premium comparator; Travel + Leisure 100 Best New Hotels 2025; Michelin Guide PLUS); and <strong>Spirit Square / Tidemark Theatre</strong> (showcase site; civic governance dimension; INFilm location library integration).</p>
+          <p>Each venue is a distinct pool in the Tyee Pool sense — a defined space with its own acoustic character, audience, and programming logic. The Tyee Club of B.C. has held its chinook salmon tournament in Campbell River since 1923 under a strict constraint set: rowboat or canoe only, 20-pound line maximum, single barbless hook. The constraint is what makes the catch count. The compound lens makes the differences between pools legible and actionable. The peer-reviewed papers are the membership pins — proof the catch was made under the rules.</p>
+          <p>The Light register is the empirical horizon. The Lodge and Lab case study demonstrates MML's three-layer AI previsualization pipeline — brand identity, physical space, and experiential context — applied to Campbell River Lodge / Goose and Gander, with River Lodge Whisky (Clearwater Spirits / VICSS) as the Drink register anchor. <strong>TheLounge™</strong> (Mitacs Application 2) extends this into a live activation research program across the full five-venue ecosystem, with Multimodal Media Lab (MML) as primary industry partner, evoke.ca as visual design collaborator, and INFilm (Vancouver Island North Film Commission) as in-kind regional partner.</p>
           <p>Chapter 5 closes with the autopoietic return. Flynn (2003) asked the experience design question in Campbell River through Haig-Brown and activity theory. Twenty-three years later, Chapter 5 answers it from the same geographic location — with the compound lens as the instrument and the Campbell River venue ecosystem as the field site. T.S. Eliot's <em>Four Quartets</em> (1942), cited in the Flynn (2006) MASc thesis, closes the arc: <em>"And the end of all our exploring / Will be to arrive where we started / And know the place for the first time."</em> The place is Campbell River. The return is the empirical deployment of what the 2003 paper asked about. The dissertation is complete.</p>
           <div class="chapter-tags">
             <span class="tag tag-resources">Resources</span>
             <span class="tag tag-processes">Processes</span>
             <span class="tag tag-values">Values</span>
             <span class="tag">|F|D|S|L| · All Registers</span>
-            <span class="tag">IslandCamp · VICSS · San Josef Bay</span>
-            <span class="tag">MML · TheLounge™ · Desire Architecture</span>
-            <span class="tag">Lodge and Lab · Tyee Pool · Autopoietic Return</span>
+            <span class="tag">MML · TheLounge™ · LBE</span>
+            <span class="tag">Lodge and Lab · VICSS</span>
+            <span class="tag">Tyee Pool · Autopoietic Return</span>
           </div>
           <span class="doc-link-pending">↳ In development — concurrent applied ecosystem</span>
         </div>
@@ -708,7 +726,7 @@
     <div class="section-header reveal">
       <p class="section-eyebrow">Theoretical Architecture</p>
       <h2 class="section-title">The Five-Lens Convergence</h2>
-      <p class="section-desc">Five independently developed frameworks describe the same three-layer autopoietic structure. The convergence is the central theoretical claim of Paper 3.</p>
+      <p class="section-desc">Five independently developed frameworks describe the same three-lens autopoietic structure. The convergence is the central theoretical claim of Paper 3.</p>
     </div>
 
     <div class="fw-table-wrap reveal">
@@ -944,7 +962,7 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   // Subnav active state on scroll
-  const sections = ['overview', 'chapters', 'framework', 'committee', 'sources'];
+  const sections = ['narrative', 'portfolio', 'ch1', 'ch2', 'ch3', 'ch4', 'ch5'];
   const navLinks = document.querySelectorAll('.subnav-link');
   const sectObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
